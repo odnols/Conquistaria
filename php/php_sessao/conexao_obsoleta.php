@@ -2,7 +2,7 @@
 $servidor = "localhost";
 $user = "root";
 $password = "admin";
-$banco = "Conquistas";
+$banco = "conquistas";
 
 $conexao = new mysqli($servidor, $user, $password, $banco);
 /*$conexao->query("SET NAMES 'utf8'");

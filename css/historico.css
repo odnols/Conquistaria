@@ -116,7 +116,7 @@ body {
     box-shadow: inset 0px 0px 15px black;
     animation: puxa_conquista_hs 1s;
     background-color: rgba(0, 0, 0, .3);
-    background-image: url('../img/textures/Naves.png');
+    background-image: url('../files/img/textures/Naves.png');
     display: grid;
     border-top-right-radius: 25px;
     border-bottom-left-radius: 25px;

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Sua Biblioteca</title>
-    <link rel="shortcut icon" href="../img/icons/xbox_logo.png">
+    <link rel="shortcut icon" href="../files/img/icons/xbox_logo.png">
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="../css/style.css">
@@ -81,12 +81,12 @@ function count_repeat_values($needle, $haystack)
     <div id="barra_topo">
         <h2 id="titulo">Seus Games</h2>
 
-        <center><img id="xbox_sm" src="../img/icons/xbox_logo.png" onclick="JumpIn('itens_barra')"></center>
-        <img id="conquista_sm" src="../img/icons/conquista.png">
+        <center><img id="xbox_sm" src="../files/img/icons/xbox_logo.png" onclick="JumpIn('itens_barra')"></center>
+        <img id="conquista_sm" src="../files/img/icons/conquista.png">
 
         <h1 id="historico_sm"><i class="fas fa-calendar-alt" onclick="AbreHistorico('index','carrosel_fundo')" onMouseOver="toolTip('Histórico')" onMouseOut="toolTip()"></i></h1>
 
-        <img id="perfil_sm" src="../img/users/SlondoTk.png" onclick="Perfil('corpo_pagina')">
+        <img id="perfil_sm" src="../files/img/users/SlondoTk.png" onclick="Perfil('corpo_pagina')">
 
         <div id="itens_barra">
             <h3 id="gamerscore"></h3>
@@ -172,11 +172,11 @@ function count_repeat_values($needle, $haystack)
 
                     if ($jogo == 1) {
                         echo "<div class='grid-item1' onclick='AbrirConquistas($id_game)' onmouseover='select()'>
-                                <img src='../img/capas/expanded/$img_capa' class='capa_game_max'>";
+                                <img src='../files/img/capas/expanded/$img_capa' class='capa_game_max'>";
                         echo "</div>";
                     } else {
                         echo "<div class='grid-item' onclick='AbrirConquistas($id_game)' onmouseover='select()'>
-                                <img src='../img/capas/$img_capa' class='capa_game'>";
+                                <img src='../files/img/capas/$img_capa' class='capa_game'>";
                         echo "</div>";
                     }
                     $jogo++;
@@ -197,11 +197,11 @@ function count_repeat_values($needle, $haystack)
 
                     if ($jogo == 1) {
                         echo "<div class='grid-item1' onclick='AbrirConquistas($id_game)' onmouseover='select()'>
-                                    <img src='../img/capas/expanded/$img_capa' class='capa_game_max'>";
+                                    <img src='../files/img/capas/expanded/$img_capa' class='capa_game_max'>";
                         echo "</div>";
                     } else {
                         echo "<div class='grid-item' onclick='AbrirConquistas($id_game)' onmouseover='select()'>
-                                    <img src='../img/capas/$img_capa' class='capa_game'>";
+                                    <img src='../files/img/capas/$img_capa' class='capa_game'>";
                         echo "</div>";
                     }
 
@@ -236,7 +236,7 @@ function count_repeat_values($needle, $haystack)
 
                         <div class="grid-item" onclick="AbrirConquistas(<?php echo $id_game ?>)" onmouseover="select()">
 
-                            <img src="../img/capas/<?php echo $img_capa ?>" class="capa_game">
+                            <img src="../files/img/capas/<?php echo $img_capa ?>" class="capa_game">
                             <p id="nome_game_banner"><?php echo $nome_game; ?></p>
                         </div>
                 <?php }

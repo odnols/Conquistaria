@@ -52,7 +52,7 @@
     </style>";
     }
 
-    $imagem = "../img/conquistas/$id_conquista.jpg";
+    $imagem = "../files/img/conquistas/$id_conquista.jpg";
 
     # Verificando se a Imagem da Conquista Existe
     if ($dados["img_conquista"] == null && file_exists($imagem))
@@ -80,7 +80,7 @@
 
     echo "<style>
         #fundo3{
-            background-image: url('../img/capas/expanded/$img_capa');
+            background-image: url('../files/img/capas/expanded/$img_capa');
             animation: anima_fundo 50s infinite;
         }  
         </style>"
@@ -146,7 +146,7 @@
 
                 <?php
 
-                $pesquisa_img = "../Img/conquistas/" . "" . $img_conquista;
+                $pesquisa_img = "../files/img/conquistas/" . "" . $img_conquista;
                 list($largura_original, $altura_original) = getimagesize($pesquisa_img);
 
                 if ($largura_original > 100)
@@ -164,9 +164,9 @@
                         $status_conquista = null;
 
                     if ($plat_conq == 3 || $plat_conq == 2)
-                        echo "<div class='fundo_desfocado prancheta_att_fundo $status_conquista' style='background-image: url(../img/conquistas/$img_conquista)'></div>";
+                        echo "<div class='fundo_desfocado prancheta_att_fundo $status_conquista' style='background-image: url(../files/img/conquistas/$img_conquista)'></div>";
 
-                    echo "<img id='img_conquista' class='img_plat_$plat_conq preview_$status_conquista' src='../img/conquistas/$img_conquista'>";
+                    echo "<img id='img_conquista' class='img_plat_$plat_conq preview_$status_conquista' src='../files/img/conquistas/$img_conquista'>";
 
                     ?>
 
