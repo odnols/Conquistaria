@@ -71,7 +71,7 @@ function Perfil(elemento) {
         document.getElementById("transitador").style.animation = "";
         document.getElementById("titulo").style.display = "none";
 
-        document.location.href = "perfil.php";
+        document.location.href = "pages/perfil.php";
 
         clearTimeout(limpa_transicao);
     }, 1000);
@@ -112,7 +112,7 @@ function AbreBiblio(pagina, elemento, elemento2, elemento3) {
         document.getElementById(elemento3).style.animation = "esconde_bloco3 1s";
 
     limpa_transicao = setTimeout(function () {
-        document.location.href = "biblioteca.php";
+        document.location.href = "pages/biblioteca.php";
         document.getElementById("titulo").style.display = "none";
 
         if (pagina == 'conquista') {
@@ -139,7 +139,7 @@ function AbreHistorico() {
 
     limpa_transicao = setTimeout(function () {
         clearTimeout(limpa_transicao);
-        document.location.href = "historico.php";
+        document.location.href = "pages/historico.php";
     }, 500);
 }
 

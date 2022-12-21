@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Biblioteca Digital</title>
-    <link rel="shortcut icon" href="img/icons/xbox_logo.png">
+    <link rel="shortcut icon" href="files/img/icons/xbox_logo.png">
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -51,7 +51,7 @@ if (isset($_SESSION["logado"])) {
                             echo "Faça Login";
                         } ?></h2>
 
-        <center><img id="xbox_sm" src="img/icons/xbox_logo.png"></center>
+        <center><img id="xbox_sm" src="files/img/icons/xbox_logo.png"></center>
 
         <h1 id="historico_sm"><i class="fas fa-calendar-alt" onclick="<?php if (isset($_SESSION["id_usuario"])) { ?>AbreHistorico('index','carrosel_fundo')<?php } else { ?>avisa_popup('o Histórico')<?php } ?>"></i></h1>
 
@@ -65,7 +65,7 @@ if (isset($_SESSION["logado"])) {
         <img id="perfil_sm" src="<?php if (isset($_SESSION["gamertag"])) {
                                         echo $_SESSION["foto_perfil"];
                                     } else {
-                                        echo "img/icons/avatar.png";
+                                        echo "files/img/icons/avatar.png";
                                     } ?>" onclick="<?php if (isset($_SESSION["id_usuario"])) { ?>Perfil('carrosel_fundo')<?php } else { ?>login()<?php } ?>">
     </div>
 
@@ -88,14 +88,14 @@ if (isset($_SESSION["logado"])) {
 
     <!-- Slider Fundo -->
     <div id="carrosel_fundo">
-        <div><img class="carrosel" src="img/banners/gta1.png"></div>
-        <div><img class="carrosel" src="img/banners/forza3.png"></div>
-        <div><img class="carrosel" src="img/banners/assassins1.png"></div>
-        <div><img class="carrosel" src="img/banners/gta2.png"></div>
-        <div><img class="carrosel" src="img/banners/forza2.png"></div>
-        <div><img class="carrosel" src="img/banners/gta3.png"></div>
-        <div><img class="carrosel" src="img/banners/forza4.jpg"></div>
-        <div><img class="carrosel" src="img/banners/cities1.png"></div>
+        <div><img class="carrosel" src="files/img/banners/gta1.png"></div>
+        <div><img class="carrosel" src="files/img/banners/forza3.png"></div>
+        <div><img class="carrosel" src="files/img/banners/assassins1.png"></div>
+        <div><img class="carrosel" src="files/img/banners/gta2.png"></div>
+        <div><img class="carrosel" src="files/img/banners/forza2.png"></div>
+        <div><img class="carrosel" src="files/img/banners/gta3.png"></div>
+        <div><img class="carrosel" src="files/img/banners/forza4.jpg"></div>
+        <div><img class="carrosel" src="files/img/banners/cities1.png"></div>
     </div>
 
     <!-- Div para transitar entre as páginas -->

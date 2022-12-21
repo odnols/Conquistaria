@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Perfil</title>
-    <link rel="shortcut icon" href="../img/icons/xbox_logo.png">
+    <link rel="shortcut icon" href="../files/img/icons/xbox_logo.png">
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="../css/style.css">
@@ -31,10 +31,10 @@
     <div id="barra_topo">
         <h2 id="titulo">Seu Perfil</h2>
 
-        <center><img id="xbox_sm" src="../img/icons/xbox_logo.png" onclick="JumpIn('itens_barra')"></center>
+        <center><img id="xbox_sm" src="../files/img/icons/xbox_logo.png" onclick="JumpIn('itens_barra')"></center>
 
         <div id="itens_barra">
-            <img id="conquista_sm" src="../img/icons/conquista.png" onclick="AbreBiblio('perfil','cabecalho_perfil', 'opcoes_add')">
+            <img id="conquista_sm" src="../files/img/icons/conquista.png" onclick="AbreBiblio('perfil','cabecalho_perfil', 'opcoes_add')">
             <h3 id="gamerscore"></h3>
         </div>
     </div>

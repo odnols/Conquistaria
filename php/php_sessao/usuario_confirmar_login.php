@@ -26,10 +26,10 @@ if ($resultado->num_rows > 0) {
 			$_SESSION["id_usuario"] = $linha["id_user"];
 
 			$_SESSION["logado"] = 1;
-			header("Location: ../index.php");
+			header("Location: ../../index.php");
 		} else { // Informações erradas
-			header("Location: ../index.php?ERROR=001");
+			header("Location: ../../index.php?ERROR=001");
 		}
 	}
 } else // Banco de Dados de usuários vazio
-	header("Location: ../index.php?ERROR=004");
+	header("Location: ../../index.php?ERROR=004");

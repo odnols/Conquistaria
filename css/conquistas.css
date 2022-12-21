@@ -254,7 +254,7 @@ body {
     z-index: 3;
     width: 220px;
     height: 120px;
-    background: url('../Img/textures/Naves.png');
+    background: url('../files/img/textures/naves.png');
     background-color: midnightblue;
     transition: box-shadow .3s, transform .5s;
     text-align: center;

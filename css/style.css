@@ -82,7 +82,7 @@ input:checked[type="checkbox"]:before {
     width: 100%;
     background-color: rgba(0, 0, 0, .5);
     box-shadow: 0px 0px 15px black;
-    background-image: url("../img/textures/Mosaico.png");
+    background-image: url("../files/img/textures/Mosaico.png");
     z-index: 4;
     color: white;
     top: 0%;

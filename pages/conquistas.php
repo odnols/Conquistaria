@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Conquistas</title>
-    <link rel="shortcut icon" href="../img/icons/xbox_logo.png">
+    <link rel="shortcut icon" href="../files/img/icons/xbox_logo.png">
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="../css/style.css">
@@ -68,7 +68,7 @@ if (isset($_SESSION["logado"])) {
 
     echo "<style>
         #fundo3{
-            background-image: url('../img/capas/expanded/$img_capa');
+            background-image: url('../files/img/capas/expanded/$img_capa');
         }
         </style>"; ?>
 
@@ -195,7 +195,7 @@ if (isset($_SESSION["logado"])) {
     <div id="conquistas_grid">
 
         <div class="grid-item-capa">
-            <?php echo "<img id='capa_jogo' src='../img/capas/$img_capa'>";
+            <?php echo "<img id='capa_jogo' src='../files/img/capas/$img_capa'>";
 
             echo "<i class='fas fa-award fa-4x' id='icone_completo'></i>";
 
@@ -254,7 +254,7 @@ if (isset($_SESSION["logado"])) {
                 else
                     $plat_conq = 5;
 
-                $imagem = "../img/conquistas/$id_conquista.jpg";
+                $imagem = "../files/img/conquistas/$id_conquista.jpg";
 
                 $soma_pontuacao += $pontuacao_conquista;
 
@@ -275,7 +275,7 @@ if (isset($_SESSION["logado"])) {
                 }
 
                 // Calcula o tamanho da imagem
-                $pesquisa_img = "../img/conquistas/" . "" . $img_conquista;
+                $pesquisa_img = "../files/img/conquistas/" . "" . $img_conquista;
                 list($largura_original, $altura_original) = getimagesize($pesquisa_img);
 
                 if ($largura_original > 100)
@@ -332,9 +332,9 @@ if (isset($_SESSION["logado"])) {
                     echo "<i class='fas fa-user-secret fa-5x' id='icon_secret_conq'></i>";
 
                 if ($plat_conq == 3 || $plat_conq == 2)
-                    echo "<div class='fundo_desfocado $status_conquista' style='background-image: url(../img/conquistas/$img_conquista)'></div>";
+                    echo "<div class='fundo_desfocado $status_conquista' style='background-image: url(../files/img/conquistas/$img_conquista)'></div>";
 
-                echo "<img src='../img/conquistas/$img_conquista' class='img_conq img_plat_$plat_conq preview_$status_conquista'>";
+                echo "<img src='../files/img/conquistas/$img_conquista' class='img_conq img_plat_$plat_conq preview_$status_conquista'>";
 
                 if ($data_conquista != null) { ?>
                     <div id="contorna_conq" onMouseOver="toolTip('<?php echo $descricao; ?>')" onMouseOut="toolTip()"></div>
