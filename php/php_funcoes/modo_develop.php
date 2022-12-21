@@ -12,4 +12,4 @@ if (isset($_SESSION["develop"])) {
     $_SESSION["msg_sessao"] = "<h3>O Modo Develop está ativo.</h3>";
 }
 
-header("Location: ../$pagina.php");
+header("Location: ../../$pagina.php");

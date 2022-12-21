@@ -4,22 +4,22 @@
 <head>
     <meta charset="utf-8">
     <title>Perfil</title>
-    <link rel="shortcut icon" href="../files/img/icons/xbox_logo.png">
+    <link rel="shortcut icon" href="files/img/icons/xbox_logo.png">
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/perfil.css">
-    <link rel="stylesheet" type="text/css" href="../css/animations.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/perfil.css">
+    <link rel="stylesheet" type="text/css" href="css/animations.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
     </link>
 
-    <script type="text/javascript" src="../js/funcoes.js"></script>
+    <script type="text/javascript" src="js/funcoes.js"></script>
 
     <?php
-    include_once "../php/php_sessao/verifica_sessao.php";
-    include_once "../php/php_funcoes/dados_carregar.php"; ?>
+    include_once "php/php_sessao/verifica_sessao.php";
+    include_once "php/php_funcoes/dados_carregar.php"; ?>
 
 </head>
 
@@ -31,10 +31,10 @@
     <div id="barra_topo">
         <h2 id="titulo">Seu Perfil</h2>
 
-        <center><img id="xbox_sm" src="../files/img/icons/xbox_logo.png" onclick="JumpIn('itens_barra')"></center>
+        <center><img id="xbox_sm" src="files/img/icons/xbox_logo.png" onclick="JumpIn('itens_barra')"></center>
 
         <div id="itens_barra">
-            <img id="conquista_sm" src="../files/img/icons/conquista.png" onclick="AbreBiblio('perfil','cabecalho_perfil', 'opcoes_add')">
+            <img id="conquista_sm" src="files/img/icons/conquista.png" onclick="AbreBiblio('perfil','cabecalho_perfil', 'opcoes_add')">
             <h3 id="gamerscore"></h3>
         </div>
     </div>
@@ -52,7 +52,7 @@
             <h1 id="nome_jogador"><?php if (isset($_SESSION["gamertag"])) echo $_SESSION["gamertag"];
 
                                     if (isset($_SESSION["develop"]))
-                                        echo " <i class='fa fa-cogs' aria-hidden='true' style='color: yellow'></i>";
+                                        echo "<i class='fa fa-cogs' aria-hidden='true' style='color: yellow'></i>";
                                     ?></h1>
             <hr><br><br>
 
