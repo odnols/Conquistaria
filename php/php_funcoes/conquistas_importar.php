@@ -1,6 +1,6 @@
 <?php 
 
-include_once "../php/php_sessao/conexao_obsoleta.php";
+include_once "../php_sessao/conexao_obsoleta.php";
 session_start();
 
 $arquivo_tmp = $_FILES["arquivo"]["tmp_name"];

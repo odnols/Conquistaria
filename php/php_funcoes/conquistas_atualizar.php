@@ -1,4 +1,4 @@
-<?php include_once "../php/php_sessao/conexao_obsoleta.php";
+<?php include_once "../php_sessao/conexao_obsoleta.php";
 
 session_start();
 
@@ -105,4 +105,4 @@ if ($modo == 1) {
     }
 }
 
-Header("Location: ../conquistas.php");
+Header("Location: ../../conquistas.php");
