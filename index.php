@@ -34,6 +34,7 @@
 if (isset($_SESSION["logado"])) {
     include_once "php/php_funcoes/dados_carregar.php";
 }
+
 if (isset($_SESSION["logado"])) {
     $gamerscore = $_SESSION["gamerscore"];
 } ?>

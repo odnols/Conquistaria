@@ -4,32 +4,32 @@
 <head>
     <meta charset="utf-8">
     <title>Sua Biblioteca</title>
-    <link rel="shortcut icon" href="../files/img/icons/xbox_logo.png">
+    <link rel="shortcut icon" href="files/img/icons/xbox_logo.png">
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/biblio.css">
-    <link rel="stylesheet" type="text/css" href="../css/animations.css">
-    <link rel="stylesheet" type="text/css" href="../css/responsividade.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/biblio.css">
+    <link rel="stylesheet" type="text/css" href="css/animations.css">
+    <link rel="stylesheet" type="text/css" href="css/responsividade.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!-- Slick -->
-    <link rel="stylesheet" type="text/css" href="../js/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="../js/slick/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="js/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css" />
 
     <script src="https://kit.fontawesome.com/6c1b2d82eb.js" crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="../js/slick/slick.min.js"></script>
-    <script type="text/javascript" src="../js/tooltip.js"></script>
-    <script type="text/javascript" src="../js/funcoes.js"></script>
+    <script type="text/javascript" src="js/slick/slick.min.js"></script>
+    <script type="text/javascript" src="js/tooltip.js"></script>
+    <script type="text/javascript" src="js/funcoes.js"></script>
 
 </head>
 
 <?php session_start();
 
-require_once "../php/php_sessao/verifica_sessao.php";
+require_once "php/php_sessao/verifica_sessao.php";
 
 $jogo = 1;
 $jogos = 0;
@@ -42,18 +42,19 @@ $needle_array = array();
 $id_jogador = $_SESSION["id_usuario"];
 
 if (isset($_SESSION["logado"])) {
-    include_once "../php/php_funcoes/dados_carregar.php";
+    include_once "php/php_funcoes/dados_carregar.php";
 }
+
 if (isset($_SESSION["logado"])) {
     $gamerscore = $_SESSION["gamerscore"];
 }
+
 if (isset($_SESSION["addjogo"])) {
     $addjogo = $_SESSION["addjogo"];
     unset($_SESSION["addjogo"]);
 } else {
     $addjogo = 0;
 }
-
 
 function count_repeat_values($needle, $haystack)
 {
@@ -81,12 +82,12 @@ function count_repeat_values($needle, $haystack)
     <div id="barra_topo">
         <h2 id="titulo">Seus Games</h2>
 
-        <center><img id="xbox_sm" src="../files/img/icons/xbox_logo.png" onclick="JumpIn('itens_barra')"></center>
-        <img id="conquista_sm" src="../files/img/icons/conquista.png">
+        <center><img id="xbox_sm" src="files/img/icons/xbox_logo.png" onclick="JumpIn('itens_barra')"></center>
+        <img id="conquista_sm" src="files/img/icons/conquista.png">
 
         <h1 id="historico_sm"><i class="fas fa-calendar-alt" onclick="AbreHistorico('index','carrosel_fundo')" onMouseOver="toolTip('Histórico')" onMouseOut="toolTip()"></i></h1>
 
-        <img id="perfil_sm" src="../files/img/users/SlondoTk.png" onclick="Perfil('corpo_pagina')">
+        <img id="perfil_sm" src="files/img/users/SlondoTk.png" onclick="Perfil('corpo_pagina')">
 
         <div id="itens_barra">
             <h3 id="gamerscore"></h3>
@@ -172,11 +173,11 @@ function count_repeat_values($needle, $haystack)
 
                     if ($jogo == 1) {
                         echo "<div class='grid-item1' onclick='AbrirConquistas($id_game)' onmouseover='select()'>
-                                <img src='../files/img/capas/expanded/$img_capa' class='capa_game_max'>";
+                                <img src='files/img/capas/expanded/$img_capa' class='capa_game_max'>";
                         echo "</div>";
                     } else {
                         echo "<div class='grid-item' onclick='AbrirConquistas($id_game)' onmouseover='select()'>
-                                <img src='../files/img/capas/$img_capa' class='capa_game'>";
+                                <img src='files/img/capas/$img_capa' class='capa_game'>";
                         echo "</div>";
                     }
                     $jogo++;
@@ -197,11 +198,11 @@ function count_repeat_values($needle, $haystack)
 
                     if ($jogo == 1) {
                         echo "<div class='grid-item1' onclick='AbrirConquistas($id_game)' onmouseover='select()'>
-                                    <img src='../files/img/capas/expanded/$img_capa' class='capa_game_max'>";
+                                    <img src='files/img/capas/expanded/$img_capa' class='capa_game_max'>";
                         echo "</div>";
                     } else {
                         echo "<div class='grid-item' onclick='AbrirConquistas($id_game)' onmouseover='select()'>
-                                    <img src='../files/img/capas/$img_capa' class='capa_game'>";
+                                    <img src='files/img/capas/$img_capa' class='capa_game'>";
                         echo "</div>";
                     }
 
@@ -236,7 +237,7 @@ function count_repeat_values($needle, $haystack)
 
                         <div class="grid-item" onclick="AbrirConquistas(<?php echo $id_game ?>)" onmouseover="select()">
 
-                            <img src="../files/img/capas/<?php echo $img_capa ?>" class="capa_game">
+                            <img src="files/img/capas/<?php echo $img_capa ?>" class="capa_game">
                             <p id="nome_game_banner"><?php echo $nome_game; ?></p>
                         </div>
                 <?php }
@@ -246,7 +247,7 @@ function count_repeat_values($needle, $haystack)
     <?php } ?>
 
     <!-- Formulário para adicionar um jogo -->
-    <form id="form_add_jogo" action="../php/php_funcoes/jogos_adicionar.php" method="POST" enctype="multipart/form-data">
+    <form id="form_add_jogo" action="php/php_funcoes/jogos_adicionar.php" method="POST" enctype="multipart/form-data">
 
         <div id="mensagens">
             <?php if (isset($_SESSION["msg_sessao"])) {
@@ -277,7 +278,7 @@ function count_repeat_values($needle, $haystack)
     <!-- Botões para Adicionar um Game ou Visualizar a Biblioteca Completa -->
     <div id="opcoes_add">
 
-        <input class="butao_add" type="button" value="Opções" onclick="opcoes()">
+        <!-- <input class="butao_add" type="button" value="Opções" onclick="opcoes()"> -->
 
         <?php if (isset($_SESSION["develop"])) { ?>
             <input class="butao_add" type="button" value="Adicionar Jogo" onclick="adicionar_jogo()">

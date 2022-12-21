@@ -1,7 +1,7 @@
 <?php
 
-include_once "../php/php_sessao/verifica_sessao.php";
-include_once "../php/php_sessao/conexao_obsoleta.php";
+include_once "../php_sessao/verifica_sessao.php";
+include_once "../php_sessao/conexao_obsoleta.php";
 
 if (!isset($_GET["plat"])) {
     $id_game = $_GET["id"];
@@ -38,4 +38,4 @@ if (!isset($_GET["plat"])) {
     $_SESSION["plataforma"] = $_GET["plat"];
 }
 
-Header("Location: ../conquistas.php");
+Header("Location: ../../conquistas.php");

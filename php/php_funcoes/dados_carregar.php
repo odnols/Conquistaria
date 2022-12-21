@@ -1,6 +1,6 @@
 <?php
 
-include_once "../php_sessao/conexao_obsoleta.php";
+include_once $_SERVER['DOCUMENT_ROOT']."/conquistaria/php/php_sessao/conexao_obsoleta.php";
 
 if (!isset($_SESSION["gamerscore"]))
     $soma_gamerscore = 0;
@@ -22,7 +22,7 @@ if ($executa_busca->num_rows > 0) {
         $_SESSION["moderacao"] = $dados["moderacao"];
 
         $nome_img = $dados["nome_img"];
-        $_SESSION["foto_perfil"] = "files/img/users/$nome_img";
+        $_SESSION["foto_perfil"] = "/conquistaria/files/img/users/$nome_img";
     }
 }
 

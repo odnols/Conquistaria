@@ -4,24 +4,24 @@
 <head>
     <meta charset="utf-8">
     <title>Conquistas</title>
-    <link rel="shortcut icon" href="../files/img/icons/xbox_logo.png">
+    <link rel="shortcut icon" href="files/img/icons/xbox_logo.png">
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/conquistas.css">
-    <link rel="stylesheet" type="text/css" href="../css/animations.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/conquistas.css">
+    <link rel="stylesheet" type="text/css" href="css/animations.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
 
     <!-- Slick -->
-    <link rel="stylesheet" type="text/css" href="../js/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="../js/slick/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="js/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css" />
 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="../js/slick/slick.min.js"></script>
-    <script type="text/javascript" src="../js/tooltip.js"></script>
-    <script type="text/javascript" src="../js/funcoes.js"></script>
+    <script type="text/javascript" src="js/slick/slick.min.js"></script>
+    <script type="text/javascript" src="js/tooltip.js"></script>
+    <script type="text/javascript" src="js/funcoes.js"></script>
 </head>
 <?php session_start();;
 
@@ -36,7 +36,7 @@ $plat_cont = 0;
 $primeira_conquista = 0;
 
 if (isset($_SESSION["logado"])) {
-    include_once "../php/php_funcoes/dados_carregar.php";
+    include_once "php/php_funcoes/dados_carregar.php";
 }
 if (isset($_SESSION["logado"])) {
     $gamerscore = $_SESSION["gamerscore"];
@@ -63,12 +63,12 @@ if (isset($_SESSION["logado"])) {
             $img_capa = $dados["img_game"];
         }
     } else {
-        header("Location: ../php/php_funcoes/game_carrega.php?id=55");
+        header("Location: php/php_funcoes/game_carrega.php?id=55");
     }
 
     echo "<style>
         #fundo3{
-            background-image: url('../files/img/capas/expanded/$img_capa');
+            background-image: url('files/img/capas/expanded/$img_capa');
         }
         </style>"; ?>
 
@@ -99,7 +99,7 @@ if (isset($_SESSION["logado"])) {
     $plataformas = $dados1["plataforma"];
     ?>
     <!-- Formulário para adicionar um jogo -->
-    <form id="form_impt_conq" action="../php/php_funcoes/conquistas_importar.php" method="POST" enctype="multipart/form-data">
+    <form id="form_impt_conq" action="php/php_funcoes/conquistas_importar.php" method="POST" enctype="multipart/form-data">
         <center>
 
             <input name="id_game" value="<?php echo $id_game ?>" style="display:none">
@@ -134,7 +134,7 @@ if (isset($_SESSION["logado"])) {
         </center>
     </form>
 
-    <form id="form_add_conq" action="../php/php_funcoes/conquistas_adicionar.php" method="POST">
+    <form id="form_add_conq" action="php/php_funcoes/conquistas_adicionar.php" method="POST">
 
         <div id="add_conq_org">
 
@@ -195,7 +195,7 @@ if (isset($_SESSION["logado"])) {
     <div id="conquistas_grid">
 
         <div class="grid-item-capa">
-            <?php echo "<img id='capa_jogo' src='../files/img/capas/$img_capa'>";
+            <?php echo "<img id='capa_jogo' src='files/img/capas/$img_capa'>";
 
             echo "<i class='fas fa-award fa-4x' id='icone_completo'></i>";
 
@@ -206,15 +206,18 @@ if (isset($_SESSION["logado"])) {
                 echo " <i class='fab fa-xbox' title='Jogado no Xbox One'></i> ";
                 $plat_cont++;
             }
+
             if (strpos($plataformas, "Xbox 360") !== false) {
                 if ($plat_cont == 0)
                     echo "<i class='fab fa-xbox' title='Jogado no Xbox 360'></i> ";
                 $plat_cont++;
             }
+
             if (strpos($plataformas, "PC") !== false) {
                 echo "<i class='fab fa-steam' title='Jogado no PC'></i> ";
                 $plat_cont++;
             }
+
             if (strpos($plataformas, "Android") !== false) {
                 echo "<i class='fab fa-android' title='Jogado no Android'></i> ";
                 $plat_cont++;
@@ -233,7 +236,7 @@ if (isset($_SESSION["logado"])) {
                 $nome_conquista = $dados["nome_conquista"];
                 $pontuacao_conquista = $dados["pontuacao"];
                 $descricao = $dados["descricao"];
-                $secreta = $dados["tipo"];
+                $secreta = 0;
                 $img_conquista = $dados["img_conquista"];
                 $plataforma = $dados["plataforma"];
 
@@ -254,7 +257,7 @@ if (isset($_SESSION["logado"])) {
                 else
                     $plat_conq = 5;
 
-                $imagem = "../files/img/conquistas/$id_conquista.jpg";
+                $imagem = "files/img/conquistas/$id_conquista.jpg";
 
                 $soma_pontuacao += $pontuacao_conquista;
 
@@ -275,7 +278,7 @@ if (isset($_SESSION["logado"])) {
                 }
 
                 // Calcula o tamanho da imagem
-                $pesquisa_img = "../files/img/conquistas/" . "" . $img_conquista;
+                $pesquisa_img = "files/img/conquistas/$img_conquista";
                 list($largura_original, $altura_original) = getimagesize($pesquisa_img);
 
                 if ($largura_original > 100)
@@ -332,9 +335,9 @@ if (isset($_SESSION["logado"])) {
                     echo "<i class='fas fa-user-secret fa-5x' id='icon_secret_conq'></i>";
 
                 if ($plat_conq == 3 || $plat_conq == 2)
-                    echo "<div class='fundo_desfocado $status_conquista' style='background-image: url(../files/img/conquistas/$img_conquista)'></div>";
+                    echo "<div class='fundo_desfocado $status_conquista' style='background-image: url(files/img/conquistas/$img_conquista)'></div>";
 
-                echo "<img src='../files/img/conquistas/$img_conquista' class='img_conq img_plat_$plat_conq preview_$status_conquista'>";
+                echo "<img src='files/img/conquistas/$img_conquista' class='img_conq img_plat_$plat_conq preview_$status_conquista'>";
 
                 if ($data_conquista != null) { ?>
                     <div id="contorna_conq" onMouseOver="toolTip('<?php echo $descricao; ?>')" onMouseOut="toolTip()"></div>
@@ -350,8 +353,7 @@ if (isset($_SESSION["logado"])) {
                 else
                     echo "<h3 class='nome_conq'>Conquista secreta</h3>";
 
-                echo "      </div>
-                        </div>";
+                echo "</div></div>";
             }
 
             if ($pontuacao_total > 0)

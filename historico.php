@@ -4,30 +4,30 @@
 <head>
     <meta charset="utf-8">
     <title>Histórico</title>
-    <link rel="shortcut icon" href="../files/img/icons/xbox_logo.png">
+    <link rel="shortcut icon" href="files/img/icons/xbox_logo.png">
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/animations.css">
-    <link rel="stylesheet" type="text/css" href="../css/historico.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/animations.css">
+    <link rel="stylesheet" type="text/css" href="css/historico.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!-- Slick -->
-    <link rel="stylesheet" type="text/css" href="../js/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="../js/slick/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="js/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css" />
 
     <script src="https://kit.fontawesome.com/6c1b2d82eb.js" crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="../js/slick/slick.min.js"></script>
-    <script type="text/javascript" src="../js/tooltip.js"></script>
-    <script type="text/javascript" src="../js/funcoes.js"></script>
+    <script type="text/javascript" src="js/slick/slick.min.js"></script>
+    <script type="text/javascript" src="js/tooltip.js"></script>
+    <script type="text/javascript" src="js/funcoes.js"></script>
 </head>
 
 <?php session_start();
 
-include_once "../php/php_funcoes/dados_carregar.php";
+include_once "php/php_funcoes/dados_carregar.php";
 $gamerscore = $_SESSION["gamerscore"];
 $id_jogador = $_SESSION["id_usuario"];
 $data_anterior = 0;
@@ -78,7 +78,7 @@ $confirma = 0; ?>
 
                         <div class="grid-item" onclick="filtrarHistorico(<?php echo $id_game ?>)" onmouseover="select()">
 
-                            <img src="../files/img/capas/<?php echo $img_capa ?>" class="capa_game">
+                            <img src="files/img/capas/<?php echo $img_capa ?>" class="capa_game">
                             <p id="nome_game_banner"><?php echo $nome_game; ?></p>
                         </div>
                 <?php }
@@ -167,7 +167,7 @@ $confirma = 0; ?>
 
                                                     $pontuacao = $dados2["pontuacao"];
                                                     $nome_conquista = $dados2["nome_conquista"];
-                                                    $imagem = "../files/img/conquistas/$id_conquista.jpg";
+                                                    $imagem = "files/img/conquistas/$id_conquista.jpg";
 
                                                     if ($dados2["img_conquista"] == null && file_exists($imagem))
                                                         $img_conquista = "$id_conquista.jpg";
@@ -181,7 +181,7 @@ $confirma = 0; ?>
 
                                 ?>
 
-                            <div class="grid-conq-pp" onMouseOver="toolTip('<?php echo $nome_conquista ?>')" onMouseOut="toolTip()"><img src="../files/img/conquistas/<?php echo $img_conquista; ?>"></div>
+                            <div class="grid-conq-pp" onMouseOver="toolTip('<?php echo $nome_conquista ?>')" onMouseOut="toolTip()"><img src="files/img/conquistas/<?php echo $img_conquista; ?>"></div>
         <?php
 
                                                 } else {
@@ -245,7 +245,7 @@ $confirma = 0; ?>
                                                 if ($data != $data_anterior)
                                                     echo "<div class='grid-conquistas-pp'>";
 
-                                                $imagem = "../files/img/conquistas/$id_conquista.jpg";
+                                                $imagem = "files/img/conquistas/$id_conquista.jpg";
 
                                                 if ($dados["img_conquista"] == null && file_exists($imagem))
                                                     $img_conquista = "$id_conquista.jpg";
@@ -258,7 +258,7 @@ $confirma = 0; ?>
                                                     $img_conquista = $dados["img_conquista"];
 
                                                 echo "<div id='quadro'>";
-                                                echo "<img class='grid-conq-pp' id='conquista_pp' src='../files/img/conquistas/$img_conquista'>";
+                                                echo "<img class='grid-conq-pp' id='conquista_pp' src='files/img/conquistas/$img_conquista'>";
                                                 echo "</div>";
 
                                                 if ($confirma = 1)
