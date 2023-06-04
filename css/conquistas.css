@@ -141,18 +141,9 @@ body {
     position: absolute;
     text-align: center;
     align-items: center;
-    background-color: red;
 }
 
-#icon_status {
-    top: 58%;
-    left: 40%;
-    z-index: 3;
-    position: fixed;
-    -webkit-filter: drop-shadow(0px 0px 5px black);
-}
-
-#icon_secret {
+.icon_secret {
     top: 20px;
     left: 10px;
     z-index: 5;
@@ -160,10 +151,9 @@ body {
     color: white;
     position: absolute;
     transform: rotateZ(-15deg);
-    -webkit-filter: drop-shadow(0px 0px 5px black);
 }
 
-#icon_option {
+.icon_option {
     top: 5%;
     left: 90%;
     z-index: 3;
@@ -171,27 +161,26 @@ body {
     height: 90%;
     position: absolute;
     transition: transform .2s;
-    -webkit-filter: drop-shadow(0px 0px 5px black);
 }
 
-#status_conq {
+.status_conq {
     top: 83%;
     left: 3%;
     position: absolute;
 }
 
-#lixeira_conq {
+.lixeira_conq {
     transition: transform .2s;
 }
 
-#lixeira_conq:hover {
+.lixeira_conq:hover {
     transform: scale(1.2);
 }
 
 #img_conquista {
     width: 500px;
     height: 280px;
-    pointer-events: none z-index: 3 !important;
+    pointer-events: none z-index 3 !important;
     position: absolute !important;
     box-shadow: 0px 0px 10px black;
 }
@@ -230,7 +219,7 @@ body {
     box-shadow: 0 0 25px midnightblue inset;
 }
 
-#contorna_conq_block {
+.contorna_conq_block {
     top: 0px;
     z-index: 3;
     width: 220px;
@@ -249,7 +238,7 @@ body {
     position: fixed;
 }
 
-#descricao {
+.descricao {
     z-index: 3;
     width: 220px;
     height: 120px;
@@ -260,12 +249,12 @@ body {
     background: url('../files/img/textures/naves.png');
 }
 
-#descricao:hover {
+.descricao:hover {
     transform: scale(1.1);
     box-shadow: 0px 0px 15px white;
 }
 
-#infos-descri {
+.infos-descri {
     z-index: 2;
     width: 220px;
     float: right;
@@ -354,7 +343,7 @@ body {
     background-color: midnightblue;
 }
 
-#id_conq {
+.id_conq {
     width: 60px;
     color: yellow;
     font-size: 20px;
@@ -392,7 +381,6 @@ body {
     position: absolute;
     animation: game_completo 1s;
     filter: drop-shadow(0px 0px 5px black);
-    -webkit-filter: drop-shadow(0px 0px 5px black);
 }
 
 #icones {
@@ -410,10 +398,9 @@ body {
     color: white;
     position: absolute;
     filter: drop-shadow(0px 0px 5px black);
-    -webkit-filter: drop-shadow(0px 0px 5px black);
 }
 
-#icon_secret_conq {
+.icon_secret_conq {
     top: 0px;
     left: 0px;
     z-index: 3;
@@ -421,27 +408,25 @@ body {
     color: white;
     position: absolute;
     transform: rotateZ(-15deg);
-    -webkit-filter: drop-shadow(0px 0px 5px black);
 }
 
-#ajusta_icon_view {
+.ajusta_icon_view {
     z-index: 5;
     width: 20px;
     position: absolute;
     padding-left: 220px;
 }
 
-#icon_view_conq {
+.icon_view_conq {
     top: 5px;
     z-index: 3;
     right: 10px;
     color: white;
     position: absolute;
     transition: -webkit-filter .5s;
-    -webkit-filter: drop-shadow(0px 0px 5px black);
 }
 
-#icon_view_conq:hover {
+.icon_view_conq:hover {
     -webkit-filter: drop-shadow(0px 0px 5px white);
 }
 
@@ -458,19 +443,19 @@ body {
 }
 
 .grid-item {
-    text-align: center;
-    position: absolute;
     z-index: 2;
-    box-shadow: 0px 0px 15px black;
     width: 220px;
     height: 120px;
     overflow: hidden;
+    position: absolute;
+    text-align: center;
+    box-shadow: 0px 0px 15px black;
     transition: box-shadow .3s, transform .5s, opacity .5s;
 }
 
 .grid-item:hover {
-    transform: scale(1.1);
     opacity: 0;
+    transform: scale(1.1);
     box-shadow: 0px 0px 15px white;
 }
 
@@ -481,12 +466,12 @@ body {
 
 .img_plat_3,
 .img_plat_2 {
-    position: absolute;
     left: 50%;
+    margin-top: 10%;
+    position: absolute;
     margin-left: -32px;
     width: 64px !important;
     height: 64px !important;
-    margin-top: 10%;
 }
 
 .preview_conq_bloqueada_espec {
@@ -502,34 +487,37 @@ body {
 }
 
 .fundo_desfocado {
-    z-index: 0 !important;
-    background-size: cover;
-    position: absolute;
     width: 240px;
     height: 130px;
-    margin-left: -10px;
-    background-size: cover;
-    -webkit-filter: blur(5px);
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);
     filter: blur(5px);
+    position: absolute;
+    margin-left: -10px;
+    -o-filter: blur(5px);
+    z-index: 0 !important;
+    -ms-filter: blur(5px);
+    background-size: cover;
+    -moz-filter: blur(5px);
+    -webkit-filter: blur(5px);
 }
 
 .prancheta_att_fundo {
-    position: absolute;
+    top: -2%;
+    left: 50%;
     width: 520px;
     height: 320px;
-    left: 50%;
+    position: absolute;
     margin-left: -260px;
-    top: -2%;
     z-index: 0 !important;
 }
 
 #input_add_imagem {
-    position: absolute;
     left: 2%;
-    color: white;
     top: 75%;
+    color: white;
     font-size: 20px;
+    position: absolute;
+}
+
+.shadow_icon {
+    -webkit-filter: drop-shadow(0px 0px 5px black);
 }

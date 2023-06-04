@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/conquistas.css">
     <link rel="stylesheet" type="text/css" href="css/animations.css">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
 
@@ -26,14 +27,14 @@
 
 <?php session_start();
 
-$iduser = $_SESSION["id_usuario"];
 $conta_conquistas = 0;
-$total_conquistas_alc = 0;
 $total_pontuacao_alc = 0;
+$total_conquistas_alc = 0;
+$iduser = $_SESSION["id_usuario"];
 
-$pontuacao_total = 0;
-$soma_pontuacao = 0;
 $plat_cont = 0;
+$soma_pontuacao = 0;
+$pontuacao_total = 0;
 $primeira_conquista = 0;
 
 if (isset($_SESSION["logado"]))
@@ -79,8 +80,8 @@ if (isset($_SESSION["logado"]))
         <center><i class="fab fa-xbox fa-3x" id="xbox_sm" onclick="JumpIn('itens_barra')"></i></center>
 
         <h1 id="historico_sm"><i class="fas fa-calendar-alt" onclick="AbreHistorico('index','carrosel_fundo')" onMouseOver="toolTip('Histórico')" onMouseOut="toolTip()""></i></h1>
-        
-        <h1><i id=" conquista_sm" class="fas fa-trophy" onclick="AbreBiblio('conquista','fundo2', 'fundo3', 'conquistas_grid')" onMouseOver="toolTip('Biblioteca')" onMouseOut="toolTip()"></i></h1>
+
+        <h1><i class="fas fa-trophy" id="conquista_sm" onclick="AbreBiblio('conquista','fundo2', 'fundo3', 'conquistas_grid')" onMouseOver="toolTip('Biblioteca')" onMouseOut="toolTip()"></i></h1>
 
         <img id="perfil_sm" src="<?php echo $_SESSION['foto_perfil']; ?>" onclick="Perfil('conquistas_grid')">
 
@@ -190,9 +191,9 @@ if (isset($_SESSION["logado"]))
         <div class="grid-item-capa">
             <?php echo "<img id='capa_jogo' src='files/img/capas/$img_capa'>";
 
-            echo "<i class='fas fa-award fa-4x' id='icone_completo'></i>";
+            echo "<i class='fas fa-award fa-4x shadow_icon' id='icone_completo'></i>";
 
-            echo "<div id='icones'><h2 id='icones_plats'>";
+            echo "<div id='icones'><h2 id='icones_plats' class='shadow_icon'>";
 
             // Verificando as plataformas que o jogo está disponível
             if (strpos($plataformas, "Xbox One") !== false) {
@@ -299,14 +300,14 @@ if (isset($_SESSION["logado"]))
                 if ($executa_busca2 != null)
                     $conta_conquistas++;
 
-                echo "<div id='descricao'>";
+                echo "<div class='descricao'>";
 
-                echo "<div id='ajusta_icon_view' onclick='select()'><i id='icon_view_conq' class='fa fa-eye fa-3x' aria-hidden='true' onclick='abrirPrancheta($id_conquista)'></i></div>";
+                echo "<div class='ajusta_icon_view' onclick='select()'><i class='fa fa-eye fa-3x icon_view_conq shadow_icon' aria-hidden='true' onclick='abrirPrancheta($id_conquista)'></i></div>";
 
-                echo "<div id='infos-descri'>";
+                echo "<div class='infos-descri'>";
 
                 if (isset($_SESSION["develop"]))
-                    echo "<div id='id_conq'>$id_conquista</div>";
+                    echo "<div class='id_conq'>$id_conquista</div>";
 
                 if ($pontuacao_conquista > 0)
                     echo "$pontuacao_conquista G";
@@ -325,7 +326,7 @@ if (isset($_SESSION["logado"]))
                     <div class='grid-item plat_$plat_conq' onclick='atualizarConquista($id_conquista, $executa_busca2->num_rows)'>";
 
                 if ($secreta == 1 || $nome_conquista == "Conquista secreta")
-                    echo "<i class='fas fa-user-secret fa-5x' id='icon_secret_conq'></i>";
+                    echo "<i class='fas fa-user-secret fa-5x icon_secret_conq shadow_icon'></i>";
 
                 if ($plat_conq == 3 || $plat_conq == 2)
                     echo "<div class='fundo_desfocado $status_conquista' style='background-image: url(files/img/conquistas/$img_conquista)'></div>";
@@ -338,7 +339,7 @@ if (isset($_SESSION["logado"]))
                 <?php $total_conquistas_alc++;
                     $total_pontuacao_alc += $pontuacao_conquista;
                 } else { ?>
-                    <div id="contorna_conq_block" onMouseOver="toolTip(<?php echo $descricao; ?>)" onMouseOut="toolTip()"></div>
+                    <div class="contorna_conq_block" onMouseOver="toolTip('<?php echo $descricao; ?>')" onMouseOut="toolTip()"></div>
         <?php }
 
                 if ($secreta != 1)
