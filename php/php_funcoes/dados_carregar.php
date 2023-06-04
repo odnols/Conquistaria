@@ -1,6 +1,6 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT']."/conquistaria/php/php_sessao/conexao_obsoleta.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/conquistaria/php/php_sessao/conexao_obsoleta.php";
 
 if (!isset($_SESSION["gamerscore"]))
     $soma_gamerscore = 0;
@@ -26,13 +26,15 @@ if ($executa_busca->num_rows > 0) {
     }
 }
 
-
 // Total de Games Iniciados
 if (!isset($_SESSION["total_games"])) {
     $games = "SELECT id_game from jogos_possuidos where id_user = $iduser";
     $executa_busca = $conexao->query($games);
+    $_SESSION["total_games"] = 0;
+    $_SESSION["total_concluidos"] = 0;
 
-    $_SESSION["total_games"] = $executa_busca->num_rows || 0;
+    if ($executa_busca)
+        $_SESSION["total_games"] = $executa_busca->num_rows;
 }
 
 if (!isset($_SESSION["total_conquistas"])) {

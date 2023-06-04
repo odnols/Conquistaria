@@ -97,7 +97,7 @@ function count_repeat_values($needle, $haystack)
     <div id="corpo_pagina">
         <div id="estatisticas">
             Biblioteca: <?php echo $_SESSION["total_games"] ?><br><br>
-            Jogos Concluídos:<br><br>
+            Jogos Concluídos: <?php echo $_SESSION["total_concluidos"] ?><br><br>
             Conquistas Coletadas: <?php echo $_SESSION["total_conquistas"] ?><br><br>
             Conquistas no Total: <?php echo $_SESSION["conquistas_globais"] ?>
         </div>

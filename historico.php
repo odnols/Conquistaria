@@ -128,7 +128,7 @@ $confirma = 0; ?>
         limit 20";
                                     $executor_pontua = $conexao->query($pont_tt);
 
-                                    if ($executa->num_rows > 0) {
+                                    if ($executa) {
                                         while ($dados = $executa->fetch_assoc()) {
 
                                             $i = 0;

@@ -1,6 +1,6 @@
 <?php
 
-include_once "../php/php_sessao/conexao_obsoleta.php";
+include_once "../php_sessao/conexao_obsoleta.php";
 $i = 1;
 
 while ($i < 118) {
@@ -11,4 +11,4 @@ while ($i < 118) {
     $i++;
 }
 
-header("Location: ../biblioteca.php");
+header("Location: ../../biblioteca.php");
