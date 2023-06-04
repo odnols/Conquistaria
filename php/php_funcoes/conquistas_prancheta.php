@@ -1,11 +1,11 @@
 <html>
-<link rel="stylesheet" type="text/css" href="../css/conquistas.css">
-<link rel="stylesheet" type="text/css" href="../css/style.css">
-<link rel="stylesheet" type="text/css" href="../css/animations.css">
+<link rel="stylesheet" type="text/css" href="../../css/conquistas.css">
+<link rel="stylesheet" type="text/css" href="../../css/style.css">
+<link rel="stylesheet" type="text/css" href="../../css/animations.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
 
-<script type="text/javascript" src="../JS/funcoes.js"></script>
+<script type="text/javascript" src="../../JS/funcoes.js"></script>
 
 <body>
     <?php
@@ -21,12 +21,12 @@
 
     $dados = $executa->fetch_assoc();
 
-    $nome = $dados["nome_conquista"];
     $game = $dados["id_game"];
+    $nome = $dados["nome_conquista"];
     $pontuacao = $dados["pontuacao"];
     $descricao = $dados["descricao"];
-    $secreta = $dados["tipo"];
     $plataforma = $dados["plataforma"];
+    $secreta = $dados["secreta"] || false;
 
     $img_conquista = $dados["img_conquista"];
 
@@ -46,13 +46,13 @@
         $descricao = "Descrição";
     else {
         echo "<style>
-            #text_area{
+            #text_area {
                 color: black;
             }
         </style>";
     }
 
-    $imagem = "../files/img/conquistas/$id_conquista.jpg";
+    $imagem = "../../files/img/conquistas/$id_conquista.jpg";
 
     # Verificando se a Imagem da Conquista Existe
     if ($dados["img_conquista"] == null && file_exists($imagem))
@@ -75,14 +75,18 @@
     $verificar = "SELECT * from alcancada where id_conquista = $id_conquista and id_jogador = $id_jogador";
     $executa_busca2 = $conexao->query($verificar);
 
+    $data_conquista = null;
     $dados = $executa_busca2->fetch_assoc();
-    $data_conquista = $dados["data_alcancada"];
+
+    if ($dados)
+        $data_conquista = $dados["data_alcancada"];
 
     echo "<style>
-        #fundo3{
-            background-image: url('../files/img/capas/expanded/$img_capa');
-            animation: anima_fundo 50s infinite;
-        }  
+            #fundo3 {
+                background-image: url('../../files/img/capas/expanded/$img_capa');
+                animation: anima_fundo 50s infinite;
+                background-size: 1920px 100%;
+            }
         </style>"
 
     ?>
@@ -146,7 +150,7 @@
 
                 <?php
 
-                $pesquisa_img = "../files/img/conquistas/" . "" . $img_conquista;
+                $pesquisa_img = "../../files/img/conquistas/" . "" . $img_conquista;
                 list($largura_original, $altura_original) = getimagesize($pesquisa_img);
 
                 if ($largura_original > 100)
@@ -164,28 +168,26 @@
                         $status_conquista = null;
 
                     if ($plat_conq == 3 || $plat_conq == 2)
-                        echo "<div class='fundo_desfocado prancheta_att_fundo $status_conquista' style='background-image: url(../files/img/conquistas/$img_conquista)'></div>";
+                        echo "<div class='fundo_desfocado prancheta_att_fundo $status_conquista' style='background-image: url(../../files/img/conquistas/$img_conquista)'></div>";
 
-                    echo "<img id='img_conquista' class='img_plat_$plat_conq preview_$status_conquista' src='../files/img/conquistas/$img_conquista'>";
-
-                    ?>
+                    echo "<img id='img_conquista' class='img_plat_$plat_conq preview_$status_conquista' src='../../files/img/conquistas/$img_conquista'>"; ?>
 
                     <div id="quadro_img"></div>
 
                     <?php if ($secreta == 1 || $nome == "Conquista secreta") {
-                        echo "<i class='fas fa-user-secret fa-5x' id='icon_secret'></i>";
+                        echo "<i class='fas fa-user-secret fa-5x icon_secret'></i>";
                     } ?>
 
-                    <div id="icon_option">
+                    <div class="icon_option shadow_icon">
 
                         <?php if ($executa_busca2->num_rows > 0) {
-                            echo "<i id='status_conq' class='fa fa-check-circle fa-3x' aria-hidden='true' title='Obtida'></i>";
+                            echo "<i class='fa fa-check-circle fa-3x status_conq' aria-hidden='true' title='Obtida'></i>";
                         } else {
-                            echo "<i id='status_conq' class='fa fa-times-circle fa-3x' aria-hidden='true' title='Não obtida'></i>";
+                            echo "<i class='fa fa-times-circle fa-3x status_conq' aria-hidden='true' title='Não obtida'></i>";
                         } ?>
 
                         <?php if (isset($_SESSION["develop"])) { ?>
-                            <i class="fa fa-trash fa-3x" id="lixeira_conq" aria-hidden="true" onclick="apagar_conquista(<?php echo $id_conquista; ?>)"></i>
+                            <i class="fa fa-trash fa-3x lixeira_conq" aria-hidden="true" onclick="apagar_conquista(<?php echo $id_conquista; ?>)"></i>
                     </div>
                 <?php } ?>
                 </div>
