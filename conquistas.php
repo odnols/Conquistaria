@@ -23,7 +23,8 @@
     <script type="text/javascript" src="js/tooltip.js"></script>
     <script type="text/javascript" src="js/funcoes.js"></script>
 </head>
-<?php session_start();;
+
+<?php session_start();
 
 $iduser = $_SESSION["id_usuario"];
 $conta_conquistas = 0;
@@ -35,20 +36,17 @@ $soma_pontuacao = 0;
 $plat_cont = 0;
 $primeira_conquista = 0;
 
-if (isset($_SESSION["logado"])) {
+if (isset($_SESSION["logado"]))
     include_once "php/php_funcoes/dados_carregar.php";
-}
-if (isset($_SESSION["logado"])) {
-    $gamerscore = $_SESSION["gamerscore"];
-} ?>
 
-<body onload="atualiza_gamerscore(<?php if (isset($_SESSION['logado'])) {
-                                        echo $gamerscore;
-                                    } ?>)">
+if (isset($_SESSION["logado"]))
+    $gamerscore = $_SESSION["gamerscore"]; ?>
+
+<body onload="atualiza_gamerscore(<?php if (isset($_SESSION['logado'])) echo $gamerscore; ?>)">
 
     <audio id="audio"></audio>
-    <?php
-    $id_game = $_SESSION["ultimoGame"];
+
+    <?php $id_game = $_SESSION["ultimoGame"];
     $plataforma_esc = $_SESSION["plataforma"];
 
     // Salvando o id do último game acessado
@@ -57,19 +55,19 @@ if (isset($_SESSION["logado"])) {
     $pegardados = "SELECT * from game where id_game = $id_game";
     $executa_busca = $conexao->query($pegardados);
 
-    if ($executa_busca->num_rows > 0) {
+    if ($executa_busca->num_rows > 0)
         while ($dados = $executa_busca->fetch_assoc()) {
             $nome_game = $dados["nome_game"];
             $img_capa = $dados["img_game"];
         }
-    } else {
+    else
         header("Location: php/php_funcoes/game_carrega.php?id=55");
-    }
 
     echo "<style>
-        #fundo3{
-            background-image: url('files/img/capas/expanded/$img_capa');
-        }
+            #fundo3{
+                background-image: url('files/img/capas/expanded/$img_capa');
+                background-size: 1920px 100%;
+            }
         </style>"; ?>
 
     <div id="barra_topo">
@@ -91,13 +89,12 @@ if (isset($_SESSION["logado"])) {
         </div>
     </div>
 
-    <?php
-    $plataformas = "SELECT plataforma from game where id_game = '$id_game'";
+    <?php $plataformas = "SELECT plataforma from game where id_game = '$id_game'";
     $verifica_plataformas = $conexao->query($plataformas);
 
     $dados1 = $verifica_plataformas->fetch_assoc();
-    $plataformas = $dados1["plataforma"];
-    ?>
+    $plataformas = $dados1["plataforma"]; ?>
+
     <!-- Formulário para adicionar um jogo -->
     <form id="form_impt_conq" action="php/php_funcoes/conquistas_importar.php" method="POST" enctype="multipart/form-data">
         <center>
@@ -107,25 +104,23 @@ if (isset($_SESSION["logado"])) {
 
             <h1 id="h2_text">Plataforma
                 <select name="plataforma" style="color: black;">
-                    <?php if (strpos($plataformas, "Xbox One") !== false) {
+                    <?php if (strpos($plataformas, "Xbox One") !== false)
                         echo "<option value='Xbox One'>Xbox One</option>";
-                    }
-                    if (strpos($plataformas, "Xbox 360") !== false) {
+
+                    if (strpos($plataformas, "Xbox 360") !== false)
                         echo "<option value='Xbox 360'>Xbox 360</option>";
-                    }
-                    if (strpos($plataformas, "PC") !== false) {
+
+                    if (strpos($plataformas, "PC") !== false)
                         echo "<option value='PC'>Steam</option>";
-                    }
-                    if (strpos($plataformas, "Android") !== false) {
-                        echo "<option value='Android'>Androd</option>";
-                    } ?>
+
+                    if (strpos($plataformas, "Android") !== false)
+                        echo "<option value='Android'>Androd</option>"; ?>
                 </select>
             </h1>
 
             <hr style="width: 500px;">
-            <?php if (strpos($plataformas, "PC") !== false) {
-                echo "<h2 style='color: yellow'>Vinculado ao Xbox: <input type='checkbox' name='excessao' id='checkbox_historico'></h2>";
-            } ?>
+            <?php if (strpos($plataformas, "PC") !== false)
+                echo "<h2 style='color: yellow'>Vinculado ao Xbox: <input type='checkbox' name='excessao' id='checkbox_historico'></h2>"; ?>
 
             <h1 id="h2_text">Arquivo de Importação</h1>
             <input type="file" name="arquivo" style="color: white" required><br>
@@ -140,18 +135,17 @@ if (isset($_SESSION["logado"])) {
 
             <h1 id="h2_text">Plataforma
                 <select name="plataforma" style="color: black;">
-                    <?php if (strpos($plataformas, "Xbox One") !== false) {
+                    <?php if (strpos($plataformas, "Xbox One") !== false)
                         echo "<option value='Xbox One'>Xbox One</option>";
-                    }
-                    if (strpos($plataformas, "Xbox 360") !== false) {
+
+                    if (strpos($plataformas, "Xbox 360") !== false)
                         echo "<option value='Xbox 360'>Xbox 360</option>";
-                    }
-                    if (strpos($plataformas, "PC") !== false) {
+
+                    if (strpos($plataformas, "PC") !== false)
                         echo "<option value='PC'>Steam</option>";
-                    }
-                    if (strpos($plataformas, "Android") !== false) {
-                        echo "<option value='Android'>Androd</option>";
-                    } ?>
+
+                    if (strpos($plataformas, "Android") !== false)
+                        echo "<option value='Android'>Androd</option>"; ?>
                 </select>
             </h1>
 
@@ -193,7 +187,6 @@ if (isset($_SESSION["logado"])) {
     </div>
 
     <div id="conquistas_grid">
-
         <div class="grid-item-capa">
             <?php echo "<img id='capa_jogo' src='files/img/capas/$img_capa'>";
 
@@ -223,8 +216,7 @@ if (isset($_SESSION["logado"])) {
                 $plat_cont++;
             }
 
-            echo "</h2></div>";
-            ?>
+            echo "</h2></div>"; ?>
         </div>
         <?php $lista_conquistas = "SELECT * FROM conquista WHERE id_game = $id_game and plataforma = '$plataforma_esc'";
         $executa_busca = $conexao->query($lista_conquistas);
@@ -291,7 +283,10 @@ if (isset($_SESSION["logado"])) {
                 $executa_busca2 = $conexao->query($busca_data);
 
                 $dados = $executa_busca2->fetch_assoc();
-                $data_conquista = $dados["data_alcancada"];
+                $data_conquista = null;
+
+                if ($dados)
+                    $data_conquista = $dados["data_alcancada"];
 
                 if ($data_conquista == null)
                     if ($plat_conq == 3 || $plat_conq == 2) // PC e Xbox 360
@@ -301,9 +296,8 @@ if (isset($_SESSION["logado"])) {
                 else
                     $status_conquista = "conq_desblock";
 
-                if ($executa_busca2 != null) {
+                if ($executa_busca2 != null)
                     $conta_conquistas++;
-                }
 
                 echo "<div id='descricao'>";
 
@@ -314,13 +308,12 @@ if (isset($_SESSION["logado"])) {
                 if (isset($_SESSION["develop"]))
                     echo "<div id='id_conq'>$id_conquista</div>";
 
-                if ($pontuacao_conquista > 0) {
+                if ($pontuacao_conquista > 0)
                     echo "$pontuacao_conquista G";
-                } else if ($secreta == 1) {
+                else if ($secreta == 1)
                     echo "???";
-                } else {
+                else
                     echo "<br>";
-                }
 
                 if (strlen($data_conquista) > 0) {
                     $data_conquista = date('d-m-Y', strtotime($data_conquista));
@@ -374,7 +367,6 @@ if (isset($_SESSION["logado"])) {
             echo "<style>
                 #status_bar{
                     width: $porcentagem%;
-
                 }
                 @keyframes carrega_porcentagem{
                     from { width: 0px; opacity: 0; }
@@ -424,10 +416,10 @@ if (isset($_SESSION["logado"])) {
             $botao_plataforma = "button_filt_4";
 
         echo "<style>
-        #$botao_plataforma{
-            background-color: midnightblue;
-            color: white;
-        }
+            #$botao_plataforma{
+                background-color: midnightblue;
+                color: white;
+            }
         </style>";
     } ?>
     <!-- Atualização de Conquista -->

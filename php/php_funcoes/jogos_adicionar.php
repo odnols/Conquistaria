@@ -1,4 +1,4 @@
-<?php include_once "../php/php_sessao/conexao_obsoleta.php";
+<?php include_once "../php_sessao/conexao_obsoleta.php";
 session_start();
 
 $nome = $_POST["nome"];
@@ -24,4 +24,4 @@ if ($registro == 0) {
 
 $_SESSION["addjogo"] = 1;
 
-header("Location: ../biblioteca.php");
+header("Location: ../../biblioteca.php");

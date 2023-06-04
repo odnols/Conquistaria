@@ -51,4 +51,4 @@ if(isset($executa))
 else
     $_SESSION["msg_impt"] = "<h5 style='color: red'>Não foi possivel importar o arquivo, verifique ele e tente novamente</h5>";
 
-header("Location: ../conquistas.php");
+header("Location: ../../conquistas.php");

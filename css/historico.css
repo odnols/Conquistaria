@@ -3,34 +3,34 @@ body {
 }
 
 #ultimo_game_sm {
-    right: 9%;
     top: 0px;
+    right: 9%;
     position: absolute;
     transition: transform .2s;
 }
 
 #ultimo_game_sm:hover {
     transform: scale(1.4);
-    -webkit-filter: drop-shadow(0px 0px 15px #ffffff);
     filter: drop-shadow(0px 0px 15px #ffffff);
+    -webkit-filter: drop-shadow(0px 0px 15px #ffffff);
 }
 
 #historic_tt {
-    padding-top: 7%;
     z-index: 2;
-    color: white;
-    width: auto;
-    position: absolute;
     right: 10%;
+    width: auto;
+    color: white;
+    padding-top: 7%;
+    position: absolute;
 }
 
 #fundo_historic {
-    background-color: midnightblue;
+    top: 0px;
+    z-index: 0;
     width: 100%;
     height: 100%;
     position: fixed;
-    top: 0px;
-    z-index: 0;
+    background-color: midnightblue;
 }
 
 #fundo-pp {
@@ -40,116 +40,116 @@ body {
 }
 
 #quadro_pequeno {
-    left: 20%;
     top: 27%;
-    position: relative;
+    left: 20%;
     width: 32px;
     height: 32px;
-    background-color: rgba(0, 0, 0, .5);
-    box-shadow: 0px 0px 10px black;
+    position: relative;
     border-radius: 5px;
+    box-shadow: 0px 0px 10px black;
+    background-color: rgba(0, 0, 0, .5);
 }
 
 #quadro_pequeno_plus {
-    border-radius: 5px;
-    left: 18%;
     top: 20%;
-    position: relative;
+    left: 18%;
     width: 40px;
     height: 40px;
-    background-color: rgba(0, 0, 0, .6);
+    border-radius: 5px;
+    position: relative;
     box-shadow: 0px 0px 10px black;
+    background-color: rgba(0, 0, 0, .6);
 }
 
 #quadro_remanescente {
     left: 10%;
-    position: relative;
     width: 64px;
-    background-color: black;
+    position: relative;
     text-align: center;
+    background-color: black;
     box-shadow: 0px 0px 15px black;
 }
 
 #data_conq {
-    font-size: 30px;
-    background-color: rgba(0, 0, 0, .5);
     width: 300px;
+    font-size: 30px;
     padding-left: 2%;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     text-shadow: 0px 0px 3px black;
+    background-color: rgba(0, 0, 0, .5);
 }
 
 #pontuacao_soma_hs {
     float: right;
+    color: orange;
     font-size: 25px;
     max-width: 130px;
-    background-color: rgba(0, 0, 0, 0.4);
     min-width: 110px;
     text-align: center;
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
-    color: orange;
     text-shadow: 0px 0px 3px black;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 #conquista_pp {
-    right: 15%;
     top: 5%;
+    right: 15%;
     width: 64px;
     height: 64px;
     overflow: initial;
 }
 
 #historic_grid_hs {
-    animation: mostra_bloco 1s;
+    z-index: 2;
+    height: auto;
     color: white;
-    padding-top: 10%;
     max-width: 70%;
+    padding-top: 10%;
     padding-left: 5%;
     position: relative;
-    height: auto;
-    z-index: 2;
+    animation: mostra_bloco 1s;
 }
 
 .grid-conquistas-pp {
-    box-shadow: inset 0px 0px 15px black;
-    animation: puxa_conquista_hs 1s;
-    background-color: rgba(0, 0, 0, .3);
-    background-image: url('../files/img/textures/Naves.png');
+    width: auto;
     display: grid;
+    padding: 20px;
+    grid-gap: 10px;
+    min-width: 100px;
     border-top-right-radius: 25px;
     border-bottom-left-radius: 25px;
-    grid-gap: 10px;
-    width: auto;
+    animation: puxa_conquista_hs 1s;
+    background-color: rgba(0, 0, 0, .3);
+    box-shadow: inset 0px 0px 15px black;
+    background-image: url('../files/img/textures/Naves.png');
     grid-template-columns: auto auto auto auto auto auto auto;
-    padding: 20px;
-    min-width: 100px;
 }
 
 .grid-container {
+    height: 100%;
+    padding: 10px;
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: auto auto auto auto auto auto;
-    padding: 10px;
     max-width: 100%;
-    height: 100%;
+    grid-template-columns: auto auto auto auto auto auto;
 }
 
 .grid-item {
     z-index: 2;
-    box-shadow: 0px 0px 15px black;
+    width: 150px;
     color: white;
     height: 200px;
-    width: 150px;
+    box-shadow: 0px 0px 15px black;
     transition: box-shadow .3s, transform .5s;
 }
 
 #nome_game_banner {
-    position: absolute;
     float: left;
     width: 100px;
     opacity: 0.000001;
+    position: absolute;
 }
 
 .capa_game {
@@ -159,11 +159,11 @@ body {
 
 .grid-conq-pp {
     z-index: 3;
-    box-shadow: 0px 0px 10px black;
-    height: 64px;
     width: 64px;
-    transition: box-shadow .3s, transform .5s;
+    height: 64px;
+    box-shadow: 0px 0px 10px black;
     background-color: rgba(0, 0, 0, .6);
+    transition: box-shadow .3s, transform .5s;
 }
 
 img {
@@ -172,26 +172,26 @@ img {
 }
 
 .grid-item:hover {
-    box-shadow: 0px 0px 15px white;
     transform: scale(1.1);
+    box-shadow: 0px 0px 15px white;
 }
 
 .grid-item1:hover {
-    box-shadow: 0px 0px 15px white;
     transform: scale(1.1);
+    box-shadow: 0px 0px 15px white;
 }
 
 #opcoes_add {
-    position: absolute;
-    width: auto;
-    right: 30%;
     top: 15%;
+    right: 30%;
     z-index: 3;
+    width: auto;
+    position: absolute;
 }
 
 .butao_add {
-    border-radius: 15px;
     font-size: 20px;
+    border-radius: 15px;
     transition: background-color .5s, transform .5s, color 1s;
 }
 
@@ -202,15 +202,15 @@ img {
 }
 
 #biblioteca_completa {
-    overflow-y: auto;
     z-index: 3;
-    display: none;
     width: 100%;
-    position: absolute;
-    padding-bottom: 150px;
     height: 100%;
+    display: none;
     padding-top: 10%;
     padding-left: 5%;
-    background: linear-gradient(rgba(25, 25, 112, .6), rgb(11, 11, 58));
+    overflow-y: auto;
+    position: absolute;
+    padding-bottom: 150px;
     animation: some_biblio .7s;
+    background: linear-gradient(rgba(25, 25, 112, .6), rgb(11, 11, 58));
 }

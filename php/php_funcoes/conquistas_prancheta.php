@@ -9,12 +9,12 @@
 
 <body>
     <?php
-    require_once "../php/php_sessao/conexao_obsoleta.php";
+    require_once "../php_sessao/conexao_obsoleta.php";
     session_start();
 
+    $procura_game = 0;
     $id_conquista = $_GET["idconq"];
     $id_jogador = $_SESSION["id_usuario"];
-    $procura_game = 0;
 
     $coletor = "SELECT * FROM conquista where id_conquista = $id_conquista";
     $executa = $conexao->query($coletor);
@@ -46,10 +46,10 @@
         $descricao = "Descrição";
     else {
         echo "<style>
-        #text_area{
-            color: black;
-        }
-    </style>";
+            #text_area{
+                color: black;
+            }
+        </style>";
     }
 
     $imagem = "../files/img/conquistas/$id_conquista.jpg";
@@ -193,7 +193,6 @@
                 <?php if (isset($_SESSION["develop"])) { ?>
                     <input id="input_add_imagem" type="file" name="arquivo" style="color: white" maxlength="50">
                 <?php } ?>
-
             </form>
         </div>
     </div>

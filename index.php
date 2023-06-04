@@ -12,15 +12,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!-- Slick -->
-    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="js/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css" />
 
     <script src="https://kit.fontawesome.com/6c1b2d82eb.js" crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="slick/slick.min.js"></script>
-    <script type="text/javascript" src="JS/funcoes.js"></script>
+    <script type="text/javascript" src="js/slick/slick.min.js"></script>
+    <script type="text/javascript" src="js/funcoes.js"></script>
     <style>
         body {
             position: absolute;

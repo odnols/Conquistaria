@@ -57,7 +57,7 @@
             <hr><br><br>
 
             <h3>Plataformas <i class='fab fa-windows'></i> <i class='fab fa-xbox'></i> <i class="fab fa-steam" aria-hidden="true"></i> <i class="fab fa-android" aria-hidden="true"></i></h3>
-            <h3>Jogos Iniciados: <?php if (isset($_SESSION["total_games"])) echo $_SESSION["total_games"]; ?></h3>
+            <h3>Jogos Possuídos: <?php if (isset($_SESSION["total_games"])) echo $_SESSION["total_games"]; ?></h3>
             <h3>Conquistas Coletadas: <?php if (isset($_SESSION["total_conquistas"])) echo $_SESSION["total_conquistas"]; ?></h3>
             <br>
             <h4><?php if (strlen($_SESSION["biografia"]) > 0) {
