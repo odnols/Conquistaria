@@ -153,41 +153,40 @@ $confirma = 0; ?>
                                             echo "</div>";
 
                                             echo "<div class='grid-conquistas-pp'>";
+                                            $i = 0;
 
-                                            while ($i < 6) {
+                                            while ($dados3 = $executa3->fetch_assoc()) {
 
-                                                $dados3 = $executa3->fetch_assoc();
-                                                $id_conquista = $dados3["id_conquista"];
+                                                if ($dados["id_conquista"] && $i < 6) {
+                                                    $id_conquista = $dados3["id_conquista"];
 
-                                                $coletor2 = "SELECT * from conquista where id_conquista = $id_conquista";
-                                                $executa2 = $conexao->query($coletor2);
+                                                    $coletor2 = "SELECT * from conquista where id_conquista = $id_conquista";
+                                                    $executa2 = $conexao->query($coletor2);
 
-                                                if ($executa2) {
-                                                    $dados2 = $executa2->fetch_assoc();
+                                                    if ($executa2) {
+                                                        $dados2 = $executa2->fetch_assoc();
 
-                                                    $pontuacao = $dados2["pontuacao"];
-                                                    $nome_conquista = $dados2["nome_conquista"];
-                                                    $imagem = "files/img/conquistas/$id_conquista.jpg";
+                                                        $pontuacao = $dados2["pontuacao"];
+                                                        $nome_conquista = $dados2["nome_conquista"];
+                                                        $imagem = "files/img/conquistas/$id_conquista.jpg";
 
-                                                    if ($dados2["img_conquista"] == null && file_exists($imagem))
-                                                        $img_conquista = "$id_conquista.jpg";
-                                                    else
-                                                        $img_conquista = "semimagem.jpg";
+                                                        if ($dados2["img_conquista"] == null && file_exists($imagem))
+                                                            $img_conquista = "$id_conquista.jpg";
+                                                        else
+                                                            $img_conquista = "sem_imagem.jpg";
 
-                                                    if (mb_strpos($dados2["img_conquista"], $id_conquista) !== true && $img_conquista != "$id_conquista.jpg" && $img_conquista != "semimagem.jpg")
-                                                        $img_conquista = $dados2["img_conquista"];
-                                                    else if ($dados2["img_conquista"] != null && $img_conquista != "$id_conquista.jpg")
-                                                        $img_conquista = $dados2["img_conquista"];
+                                                        if (mb_strpos($dados2["img_conquista"], $id_conquista) !== true && $img_conquista != "$id_conquista.jpg" && $img_conquista != "sem_imagem.jpg")
+                                                            $img_conquista = $dados2["img_conquista"];
+                                                        else if ($dados2["img_conquista"] != null && $img_conquista != "$id_conquista.jpg")
+                                                            $img_conquista = $dados2["img_conquista"];
 
                                 ?>
 
-                            <div class="grid-conq-pp" onMouseOver="toolTip('<?php echo $nome_conquista ?>')" onMouseOut="toolTip()"><img src="files/img/conquistas/<?php echo $img_conquista; ?>"></div>
+                                <div class="grid-conq-pp" onMouseOver="toolTip('<?php echo $nome_conquista ?>')" onMouseOut="toolTip()"><img src="files/img/conquistas/<?php echo $img_conquista; ?>"></div>
         <?php
 
-                                                } else {
-                                                    echo "<div id='quadro'>
-                            <div id='quadro_pequeno'></div>
-                        </div>";
+                                                    } else
+                                                        echo "<div id='quadro'><div id='quadro_pequeno'></div></div>";
                                                 }
 
                                                 $data_anterior = $data;
@@ -250,9 +249,9 @@ $confirma = 0; ?>
                                                 if ($dados["img_conquista"] == null && file_exists($imagem))
                                                     $img_conquista = "$id_conquista.jpg";
                                                 else
-                                                    $img_conquista = "semimagem.jpg";
+                                                    $img_conquista = "sem_imagem.jpg";
 
-                                                if (mb_strpos($dados["img_conquista"], $id_conquista) !== true && $img_conquista != "$id_conquista.jpg" && $img_conquista != "semimagem.jpg")
+                                                if (mb_strpos($dados["img_conquista"], $id_conquista) !== true && $img_conquista != "$id_conquista.jpg" && $img_conquista != "sem_imagem.jpg")
                                                     $img_conquista = $dados["img_conquista"];
                                                 else if ($dados["img_conquista"] != null && $img_conquista != "$id_conquista.jpg")
                                                     $img_conquista = $dados["img_conquista"];

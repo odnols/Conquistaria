@@ -118,14 +118,11 @@ function count_repeat_values($needle, $haystack)
                 $verifica_conquista = "SELECT * from alcancada where id_jogador = $id_jogador order by data_alcancada desc";
                 $verificador = $conexao->query($verifica_conquista);
 
-                if ($verificador->num_rows > 0) {
-                    while ($dados = $verificador->fetch_assoc()) {
+                if ($verificador->num_rows > 0)
+                    while ($dados = $verificador->fetch_assoc())
                         array_push($id_conquistas, $dados["id_conquista"]);
-                    }
-                }
 
                 while ($jogo < 7) {
-
                     while ($jogos < 6) {
 
                         $total_conquista_col = sizeof($id_conquistas);
@@ -158,28 +155,34 @@ function count_repeat_values($needle, $haystack)
                                 array_push($lista_games2, $dados["id_game"]);
                                 $jogos++;
                             }
+
+                            if ($_SESSION["total_games"] < 8) $jogos++;
                         }
                     }
 
-                    $id_game = $lista_games2[$jogo - 1];
-                    $busca_jogo = "SELECT * from game where id_game = $id_game";
-                    $executa_busca_jogo = $conexao->query($busca_jogo);
+                    if (isset($lista_games2[$jogo - 1])) {
 
-                    $dados = $executa_busca_jogo->fetch_assoc();
+                        $id_game = $lista_games2[$jogo - 1];
+                        $busca_jogo = "SELECT * from game where id_game = $id_game";
+                        $executa_busca_jogo = $conexao->query($busca_jogo);
 
-                    $id_game = $dados["id_game"];
-                    $nome_game = $dados["nome_game"];
-                    $img_capa = $dados["img_game"];
+                        $dados = $executa_busca_jogo->fetch_assoc();
 
-                    if ($jogo == 1) {
-                        echo "<div class='grid-item1' onclick='AbrirConquistas($id_game)' onmouseover='select()'>
+                        $id_game = $dados["id_game"];
+                        $nome_game = $dados["nome_game"];
+                        $img_capa = $dados["img_game"];
+
+                        if ($jogo == 1) {
+                            echo "<div class='grid-item1' onclick='AbrirConquistas($id_game)' onmouseover='select()'>
                                 <img src='files/img/capas/expanded/$img_capa' class='capa_game_max'>";
-                        echo "</div>";
-                    } else {
-                        echo "<div class='grid-item' onclick='AbrirConquistas($id_game)' onmouseover='select()'>
+                            echo "</div>";
+                        } else {
+                            echo "<div class='grid-item' onclick='AbrirConquistas($id_game)' onmouseover='select()'>
                                 <img src='files/img/capas/$img_capa' class='capa_game'>";
-                        echo "</div>";
+                            echo "</div>";
+                        }
                     }
+
                     $jogo++;
                 }
             } else {
@@ -268,7 +271,7 @@ function count_repeat_values($needle, $haystack)
                 <option value="Xbox One">Xbox One</option>
             </select>
 
-            <h2 id="h2_text">Capa </h2>
+            <h2 id="h2_text">Capa</h2>
             <input type="file" name="arq" style="color: white" required><br>
 
             <input type="submit" value="Inserir">

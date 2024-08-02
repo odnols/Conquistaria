@@ -258,9 +258,9 @@ if (isset($_SESSION["logado"]))
                 if ($dados["img_conquista"] == null && file_exists($imagem))
                     $img_conquista = "$id_conquista.jpg";
                 else
-                    $img_conquista = "semimagem.jpg";
+                    $img_conquista = "sem_imagem.jpg";
 
-                if (mb_strpos($dados["img_conquista"], $id_conquista) !== true && $img_conquista != "$id_conquista.jpg" && $img_conquista != "semimagem.jpg")
+                if (mb_strpos($dados["img_conquista"], $id_conquista) !== true && $img_conquista != "$id_conquista.jpg" && $img_conquista != "sem_imagem.jpg")
                     $img_conquista = $dados["img_conquista"];
                 else if ($dados["img_conquista"] != null && $img_conquista != "$id_conquista.jpg")
                     $img_conquista = $dados["img_conquista"];
