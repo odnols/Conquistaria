@@ -30,20 +30,14 @@
 
     $img_conquista = $dados["img_conquista"];
 
-    if ($secreta == 0 || $secreta == null)
-        $checkbox = null;
-    else
-        $checkbox = "checked";
+    if ($secreta == 0 || $secreta == null) $checkbox = null;
+    else $checkbox = "checked";
 
-    if ($plataforma == "Xbox One")
-        $plat_conq = 1;
-    else if ($plataforma == "Xbox 360")
-        $plat_conq = 2;
-    else if ($plataforma == "PC")
-        $plat_conq = 3;
+    if ($plataforma == "Xbox One") $plat_conq = 1;
+    else if ($plataforma == "Xbox 360") $plat_conq = 2;
+    else if ($plataforma == "PC") $plat_conq = 3;
 
-    if (strlen($descricao) == 0 && isset($_SESSION["develop"]))
-        $descricao = "Descrição";
+    if (strlen($descricao) == 0 && isset($_SESSION["develop"])) $descricao = "Descrição";
     else {
         echo "<style>
             #text_area {
@@ -55,12 +49,10 @@
     $imagem = "../../files/img/conquistas/$id_conquista.jpg";
 
     # Verificando se a Imagem da Conquista Existe
-    if ($dados["img_conquista"] == null && file_exists($imagem))
-        $img_conquista = "$id_conquista.jpg";
-    else
-        $img_conquista = "semimagem.jpg";
+    if ($dados["img_conquista"] == null && file_exists($imagem)) $img_conquista = "$id_conquista.jpg";
+    else $img_conquista = "sem_imagem.jpg";
 
-    if (mb_strpos($dados["img_conquista"], $id_conquista) !== true && $img_conquista != "$id_conquista.jpg" && $img_conquista != "semimagem.jpg")
+    if (mb_strpos($dados["img_conquista"], $id_conquista) !== true && $img_conquista != "$id_conquista.jpg" && $img_conquista != "sem_imagem.jpg")
         $img_conquista = $dados["img_conquista"];
     else if ($dados["img_conquista"] != null && $img_conquista != "$id_conquista.jpg")
         $img_conquista = $dados["img_conquista"];
